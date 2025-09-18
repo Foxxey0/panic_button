@@ -36,8 +36,8 @@ HasVal(haystack, needle) {
 
 silenceWindow(id) {
 
-    outputPID := 0 ; not really needed. But id rather have it cuz it looks cool,
-    Run("nircmd-x64\nircmd.exe setappvolume /" . WinGetPID(id) . " 0", A_WorkingDir, "Max", &outputPID)
+    ; outputPID := 0 ; not really needed. But id rather have it cuz it looks cool,
+    ; Run("nircmd-x64\nircmd.exe setappvolume /" . WinGetPID(id) . " 0", A_WorkingDir, "Max", &outputPID)
 
 }
 hideWindow(hiddenWindows, id) {
@@ -143,12 +143,14 @@ debounce := 1
 
     }
 
+    Run("nircmd-x64\nircmd.exe mutesysvolume 1") ; mute system volume
+
     Array hiddenWindows := [] ; to keep track of hidden ones so they can be opened again later
 
     ; ; silence current first (its usually the most incriminating)
-    ; if currentID {
+    ; if gotoID {
 
-    ;     silenceWindow(currentID)
+    ;     silenceWindow(gotoID)
 
     ; }
 
